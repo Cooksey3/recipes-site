@@ -1,6 +1,9 @@
 package org.cookseys.recipessite.classTest;
 
 import static org.junit.Assert.assertThat;
+
+import org.cookseys.recipessite.classes.Ingredient;
+
 import static org.hamcrest.Matchers.is;
 
 import org.junit.Test;

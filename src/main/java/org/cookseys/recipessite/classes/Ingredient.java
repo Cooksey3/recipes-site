@@ -1,4 +1,4 @@
-package org.cookseys.recipessite.classTest;
+package org.cookseys.recipessite.classes;
 
 public class Ingredient {
 
