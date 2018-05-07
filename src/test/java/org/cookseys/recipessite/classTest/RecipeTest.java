@@ -4,10 +4,12 @@ import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
+import java.util.Collection;
+
 import org.cookseys.recipessite.classes.Ingredient;
 import org.cookseys.recipessite.classes.Recipe;
 import org.junit.Test;
-
+import static org.hamcrest.Matchers.contains;
 public class RecipeTest {
 	
 	private Ingredient apples = new Ingredient("Apples", "Fruit", 4.0);
@@ -25,9 +27,9 @@ public class RecipeTest {
 	public void recipeShouldHaveOneIngredient() {
 		Recipe underTest = new Recipe("George", apples);
 		
-		Ingredient ingredient = underTest.getIngredient();
+		Collection<Ingredient> ingredient = underTest.getIngredients();
 		
-		assertThat(ingredient, is(apples));
+		assertThat(ingredient, contains(apples));
 	}
 	
 	@Test
@@ -35,9 +37,9 @@ public class RecipeTest {
 		Ingredient ingredient2 = new Ingredient("Blueberries", "", 0.0);
 		Recipe underTest = new Recipe("George", ingredient2);
 		
-		 Ingredient blueberries = underTest.getIngredient();
+		Collection<Ingredient> ingredients = underTest.getIngredients();
 		
-		assertThat(ingredient2, is(blueberries));
+		assertThat(ingredients, contains(ingredient2));
 	}
 	
 	@Test
@@ -52,8 +54,9 @@ public class RecipeTest {
 	public void recipeShouldContainIngredient() {
 		Recipe underTest = new Recipe("George", apples);
 		
-		Ingredient fruit = underTest.getIngredient();
+		Collection<Ingredient> fruit = underTest.getIngredients();
 		
-		assertThat(fruit, is(apples));
+		assertThat(fruit, contains(apples));
 	}
+		
 }
